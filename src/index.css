@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@layer utilities {
+  /* Subtle 8-point star / girih motif used as section texture */
+  .pattern-girih {
+    background-image:
+      radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0);
+    background-size: 28px 28px;
+  }
+
+  .pattern-girih-lines {
+    background-image:
+      repeating-linear-gradient(45deg, currentColor 0, currentColor 1px, transparent 0, transparent 50%),
+      repeating-linear-gradient(-45deg, currentColor 0, currentColor 1px, transparent 0, transparent 50%);
+    background-size: 24px 24px;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  ::selection {
+    background-color: var(--color-emerald-200);
+    color: var(--color-emerald-950);
+  }
+}
