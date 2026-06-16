@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 export function LoginForm() {
   const router = useRouter();
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -17,13 +17,13 @@ export function LoginForm() {
     setError("");
 
     const result = await signIn("credentials", {
-      email,
+      name,
       password,
       redirect: false,
     });
 
     if (result?.error) {
-      setError("E-mel atau kata laluan tidak sah.");
+      setError("Username or password is incorrect.");
       setLoading(false);
     } else {
       router.push("/admin/content");
@@ -33,17 +33,17 @@ export function LoginForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-slate-300">E-mel</label>
+        <label className="block text-sm font-medium text-slate-300">Username</label>
         <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           required
           className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-800 px-3 py-2.5 text-white placeholder-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-slate-300">Kata Laluan</label>
+        <label className="block text-sm font-medium text-slate-300">Password</label>
         <input
           type="password"
           value={password}
@@ -58,7 +58,7 @@ export function LoginForm() {
         disabled={loading}
         className="w-full rounded-lg bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-500 disabled:opacity-60"
       >
-        {loading ? "Log masuk..." : "Log Masuk"}
+        {loading ? "Logging in..." : "Log In"}
       </button>
     </form>
   );
