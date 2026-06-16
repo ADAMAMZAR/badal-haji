@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
-import { revalidateTag } from "next/cache";
+import { revalidatePath } from "next/cache";
 import { authOptions } from "@/lib/auth";
 import { getContent, setContent } from "@/lib/content";
 import type { SiteContent } from "@/types/content";
@@ -18,7 +18,7 @@ export async function PUT(request: Request) {
 
   const body: SiteContent = await request.json();
   await setContent(body);
-  revalidateTag("site-content");
+  revalidatePath("/");
 
   return NextResponse.json({ ok: true });
 }
