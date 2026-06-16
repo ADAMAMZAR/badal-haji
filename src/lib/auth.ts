@@ -7,17 +7,17 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       name: "credentials",
       credentials: {
-        email: { label: "Email", type: "email" },
+        name: { label: "Name", type: "text" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) return null;
+        if (!credentials?.name || !credentials?.password) return null;
 
-        const adminEmail = process.env.ADMIN_EMAIL;
+        const adminName = process.env.ADMIN_NAME;
         const adminPasswordHash = process.env.ADMIN_PASSWORD_HASH;
 
-        if (!adminEmail || !adminPasswordHash) return null;
-        if (credentials.email !== adminEmail) return null;
+        if (!adminName || !adminPasswordHash) return null;
+        if (credentials.name !== adminName) return null;
 
         const valid = await bcrypt.compare(
           credentials.password,
@@ -25,7 +25,7 @@ export const authOptions: NextAuthOptions = {
         );
         if (!valid) return null;
 
-        return { id: "1", email: adminEmail, name: "Admin" };
+        return { id: "1", name: adminName };
       },
     }),
   ],
