@@ -18,10 +18,8 @@
 }
 
 @layer utilities {
-  /* Subtle 8-point star / girih motif used as section texture */
   .pattern-girih {
-    background-image:
-      radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0);
+    background-image: radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0);
     background-size: 28px 28px;
   }
 
