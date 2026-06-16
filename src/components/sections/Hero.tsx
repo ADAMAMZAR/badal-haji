@@ -18,19 +18,19 @@ export function Hero({ content }: { content: SiteContent }) {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto max-w-5xl px-6 py-24 text-center sm:py-32">
+      <div className="relative mx-auto max-w-5xl px-6 py-16 text-center sm:py-24 md:py-32">
         <Reveal>
-          <p className="mb-6 text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300">
+          <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-emerald-300 sm:text-sm">
             {content.hero.eyebrow}
           </p>
-          <h1 className="font-display text-5xl font-medium uppercase leading-[1.05] tracking-tight sm:text-6xl md:text-7xl">
+          <h1 className="font-display text-4xl font-medium uppercase leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             <span className="block text-white">{content.hero.titleLine1}</span>
             <span className="block text-emerald-400">{content.hero.titleLine2}</span>
           </h1>
-          <p className="mt-5 font-display text-xl italic text-emerald-100/90 sm:text-2xl">
+          <p className="mt-4 font-display text-lg italic text-emerald-100/90 sm:mt-5 sm:text-xl md:text-2xl">
             {content.hero.tagline}
           </p>
-          <p className="mx-auto mt-6 max-w-2xl text-balance text-base leading-relaxed text-emerald-100/80 sm:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl text-balance text-sm leading-relaxed text-emerald-100/80 sm:mt-6 sm:text-base md:text-lg">
             {content.hero.description}
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">

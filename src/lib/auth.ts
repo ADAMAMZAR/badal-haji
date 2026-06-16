@@ -19,10 +19,7 @@ export const authOptions: NextAuthOptions = {
         if (!adminName || !adminPasswordHash) return null;
         if (credentials.name !== adminName) return null;
 
-        const valid = await bcrypt.compare(
-          credentials.password,
-          adminPasswordHash,
-        );
+        const valid = await bcrypt.compare(credentials.password, adminPasswordHash);
         if (!valid) return null;
 
         return { id: "1", name: adminName };

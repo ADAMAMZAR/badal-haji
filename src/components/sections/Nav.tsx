@@ -1,6 +1,7 @@
 "use client";
 
-import { MessageCircle } from "lucide-react";
+import { useState } from "react";
+import { MessageCircle, Menu, X } from "lucide-react";
 import { StarMark } from "@/components/ui/StarMark";
 import type { SiteContent } from "@/types/content";
 
@@ -12,6 +13,7 @@ const navLinks = [
 ];
 
 export function Nav({ content }: { content: SiteContent }) {
+  const [open, setOpen] = useState(false);
   const waLink = `https://wa.me/${content.contact.whatsappNumber}?text=${encodeURIComponent(content.contact.generalMessage)}`;
 
   return (
@@ -36,16 +38,55 @@ export function Nav({ content }: { content: SiteContent }) {
           ))}
         </nav>
 
-        <a
-          href={waLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-emerald-700/20 bg-white px-4 py-2 text-sm font-semibold text-emerald-800 transition-colors hover:border-emerald-700/40 hover:bg-emerald-50"
-        >
-          <MessageCircle className="h-4 w-4" />
-          Hubungi Kami
-        </a>
+        <div className="flex items-center gap-3">
+          <a
+            href={waLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden items-center gap-2 rounded-full border border-emerald-700/20 bg-white px-4 py-2 text-sm font-semibold text-emerald-800 transition-colors hover:border-emerald-700/40 hover:bg-emerald-50 md:inline-flex"
+          >
+            <MessageCircle className="h-4 w-4" />
+            Hubungi Kami
+          </a>
+
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Tutup menu" : "Buka menu"}
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-emerald-900 transition-colors hover:bg-emerald-50 md:hidden"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile menu */}
+      {open && (
+        <div className="border-t border-emerald-900/10 bg-slate-50 md:hidden">
+          <nav className="flex flex-col px-6 py-3">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="border-b border-emerald-900/5 py-3 text-sm font-semibold text-emerald-900/80 last:border-0 hover:text-emerald-900"
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href={waLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white"
+            >
+              <MessageCircle className="h-4 w-4" />
+              Hubungi Kami di WhatsApp
+            </a>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
