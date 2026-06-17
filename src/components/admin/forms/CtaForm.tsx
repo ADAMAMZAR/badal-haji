@@ -12,10 +12,10 @@ export function CtaForm({ value, onChange }: Props) {
 
   return (
     <div className="space-y-5">
-      <Input label="Tajuk" value={value.title} onChange={set("title")} />
-      <Textarea label="Perihalan" value={value.description} onChange={set("description")} />
-      <Input label="Teks Butang Utama" value={value.primaryText} onChange={set("primaryText")} />
-      <Input label="Teks Butang Kedua" value={value.secondaryText} onChange={set("secondaryText")} />
+      <Input label="Title" value={value.title} onChange={set("title")} />
+      <Textarea label="Description" value={value.description} onChange={set("description")} />
+      <Input label="Primary Button Text" value={value.primaryText} onChange={set("primaryText")} />
+      <Input label="Secondary Button Text" value={value.secondaryText} onChange={set("secondaryText")} />
     </div>
   );
 }

@@ -5,6 +5,20 @@ export const metadata: Metadata = {
   title: "AmanahHaji — Pelaksanaan Badal Haji Telus & Bertauliah",
   description:
     "AmanahHaji — Perkhidmatan pelaksanaan Badal Haji yang telus, bertauliah dan direkodkan sepenuhnya bagi ketenangan hati keluarga.",
+  openGraph: {
+    title: "AmanahHaji — Pelaksanaan Badal Haji Telus & Bertauliah",
+    description:
+      "Kami melaksanakan ibadah haji bagi pihak ahli keluarga yang telah kembali ke rahmatullah — direkodkan sepenuhnya dan disertakan sijil pengesahan rasmi.",
+    siteName: "AmanahHaji",
+    locale: "ms_MY",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AmanahHaji — Pelaksanaan Badal Haji Telus & Bertauliah",
+    description:
+      "Kami melaksanakan ibadah haji bagi pihak ahli keluarga yang telah kembali ke rahmatullah — direkodkan sepenuhnya dan disertakan sijil pengesahan rasmi.",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -14,14 +14,14 @@ export function AboutForm({ value, onChange }: Props) {
   return (
     <div className="space-y-5">
       <Input label="Eyebrow" value={value.eyebrow} onChange={set("eyebrow")} />
-      <Input label="Tajuk" value={value.title} onChange={set("title")} />
-      <Textarea label="Perihalan" value={value.description} onChange={set("description")} rows={4} />
+      <Input label="Title" value={value.title} onChange={set("title")} />
+      <Textarea label="Description" value={value.description} onChange={set("description")} rows={4} />
       <div>
-        <p className="mb-2 text-sm font-medium text-slate-700">Senarai Semak (Checklist)</p>
+        <p className="mb-2 text-sm font-medium text-slate-700">Checklist</p>
         <ListEditor
           items={value.checklist}
           onChange={(items) => onChange({ ...value, checklist: items })}
-          placeholder="Tambah perkara..."
+          placeholder="Add item..."
         />
       </div>
     </div>

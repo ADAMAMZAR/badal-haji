@@ -18,8 +18,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "No file provided" }, { status: 400 });
   }
 
+  const safeName = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9._-]/g, "_")}`;
   const { put } = await import("@vercel/blob");
-  const blob = await put(file.name, file, { access: "public" });
+  const blob = await put(safeName, file, { access: "public" });
 
   return NextResponse.json({ url: blob.url });
 }

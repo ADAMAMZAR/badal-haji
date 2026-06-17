@@ -6,7 +6,7 @@ import { Plus, Trash2 } from "lucide-react";
 export function ListEditor({
   items,
   onChange,
-  placeholder = "Tambah item...",
+  placeholder = "Add item...",
 }: {
   items: string[];
   onChange: (items: string[]) => void;

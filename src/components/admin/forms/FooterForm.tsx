@@ -10,7 +10,7 @@ export function FooterForm({ value, onChange }: Props) {
   return (
     <div className="space-y-5">
       <Textarea
-        label="Perihalan Footer"
+        label="Footer Description"
         value={value.description}
         onChange={(v) => onChange({ ...value, description: v })}
         rows={3}

@@ -13,7 +13,7 @@ import { Footer } from "@/components/sections/Footer";
 export const revalidate = 60;
 
 export default async function Home() {
-  const content = await getContent();
+  const { content } = await getContent();
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-700">

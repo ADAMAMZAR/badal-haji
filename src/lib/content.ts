@@ -167,21 +167,57 @@ export const DEFAULT_CONTENT: SiteContent = {
 };
 
 const KV_KEY = "site:content";
+const KV_PREV_KEY = "site:content:prev";
+const KV_TIMEOUT_MS = 2000;
 
-export async function getContent(): Promise<SiteContent> {
+export type ContentResult =
+  | { ok: true; content: SiteContent }
+  | { ok: false; content: SiteContent; error: string };
+
+async function kvWithTimeout<T>(promise: Promise<T>): Promise<T> {
+  return Promise.race([
+    promise,
+    new Promise<never>((_, reject) =>
+      setTimeout(() => reject(new Error("KV timeout")), KV_TIMEOUT_MS)
+    ),
+  ]);
+}
+
+export async function getContent(): Promise<ContentResult> {
+  if (!process.env.KV_REST_API_URL || !process.env.KV_REST_API_TOKEN) {
+    return { ok: false, content: DEFAULT_CONTENT, error: "KV storage is not configured" };
+  }
   try {
-    if (!process.env.KV_REST_API_URL || !process.env.KV_REST_API_TOKEN) {
-      return DEFAULT_CONTENT;
-    }
     const { kv } = await import("@vercel/kv");
-    const content = await kv.get<SiteContent>(KV_KEY);
-    return content ?? DEFAULT_CONTENT;
+    const content = await kvWithTimeout(kv.get<SiteContent>(KV_KEY));
+    return { ok: true, content: content ?? DEFAULT_CONTENT };
+  } catch (e) {
+    return {
+      ok: false,
+      content: DEFAULT_CONTENT,
+      error: e instanceof Error ? e.message : "Failed to load content from KV",
+    };
+  }
+}
+
+export async function getPrevContent(): Promise<SiteContent | null> {
+  if (!process.env.KV_REST_API_URL || !process.env.KV_REST_API_TOKEN) return null;
+  try {
+    const { kv } = await import("@vercel/kv");
+    return await kvWithTimeout(kv.get<SiteContent>(KV_PREV_KEY));
   } catch {
-    return DEFAULT_CONTENT;
+    return null;
   }
 }
 
 export async function setContent(content: SiteContent): Promise<void> {
+  if (!process.env.KV_REST_API_URL || !process.env.KV_REST_API_TOKEN) {
+    throw new Error("KV storage is not configured");
+  }
   const { kv } = await import("@vercel/kv");
+  const existing = await kvWithTimeout(kv.get<SiteContent>(KV_KEY));
+  if (existing) {
+    await kv.set(KV_PREV_KEY, existing);
+  }
   await kv.set(KV_KEY, content);
 }

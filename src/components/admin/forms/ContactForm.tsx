@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import type { SiteContent } from "@/types/content";
 import { Input, Textarea } from "../FormControls";
 
@@ -6,25 +9,40 @@ type Props = {
   onChange: (v: SiteContent["contact"]) => void;
 };
 
+function validateWhatsApp(num: string): string | null {
+  if (!num) return "WhatsApp number is required.";
+  if (!/^\d{8,15}$/.test(num)) return "Enter digits only, 8–15 characters (e.g. 60194585814).";
+  return null;
+}
+
 export function ContactForm({ value, onChange }: Props) {
-  const set = (key: keyof typeof value) => (val: string) =>
+  const [waError, setWaError] = useState<string | null>(null);
+
+  const set = (key: keyof typeof value) => (val: string) => {
+    if (key === "whatsappNumber") {
+      setWaError(validateWhatsApp(val));
+    }
     onChange({ ...value, [key]: val });
+  };
 
   return (
     <div className="space-y-5">
-      <Input
-        label="Nombor WhatsApp"
-        hint="Contoh: 60194585814 (tanpa + atau sengkang)"
-        value={value.whatsappNumber}
-        onChange={set("whatsappNumber")}
-      />
+      <div>
+        <Input
+          label="WhatsApp Number"
+          hint="Digits only, no + or dashes (e.g. 60194585814)"
+          value={value.whatsappNumber}
+          onChange={set("whatsappNumber")}
+        />
+        {waError && <p className="mt-1 text-xs text-red-500">{waError}</p>}
+      </div>
       <Textarea
-        label="Mesej Pertanyaan Am"
+        label="General Enquiry Message"
         value={value.generalMessage}
         onChange={set("generalMessage")}
       />
       <Textarea
-        label="Mesej Tempahan Pakej"
+        label="Package Booking Message"
         value={value.packageMessage}
         onChange={set("packageMessage")}
       />

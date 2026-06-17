@@ -12,23 +12,23 @@ export function HeroForm({ value, onChange }: Props) {
 
   return (
     <div className="space-y-5">
-      <Input label="Eyebrow (label kecil)" value={value.eyebrow} onChange={set("eyebrow")} />
-      <Input label="Tajuk Baris 1" value={value.titleLine1} onChange={set("titleLine1")} />
-      <Input label="Tajuk Baris 2" value={value.titleLine2} onChange={set("titleLine2")} />
+      <Input label="Eyebrow (small label)" value={value.eyebrow} onChange={set("eyebrow")} />
+      <Input label="Title Line 1" value={value.titleLine1} onChange={set("titleLine1")} />
+      <Input label="Title Line 2" value={value.titleLine2} onChange={set("titleLine2")} />
       <Input label="Tagline (italic)" value={value.tagline} onChange={set("tagline")} />
       <Textarea
-        label="Perihalan"
+        label="Description"
         value={value.description}
         onChange={set("description")}
         rows={4}
       />
       <Input
-        label="Teks Butang Utama (WhatsApp)"
+        label="Primary Button Text (WhatsApp)"
         value={value.primaryCtaText}
         onChange={set("primaryCtaText")}
       />
       <Input
-        label="Teks Butang Kedua"
+        label="Secondary Button Text"
         value={value.secondaryCtaText}
         onChange={set("secondaryCtaText")}
       />

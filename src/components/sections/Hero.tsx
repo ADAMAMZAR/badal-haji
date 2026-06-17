@@ -12,6 +12,7 @@ export function Hero({ content }: { content: SiteContent }) {
       <SectionBackgroundImage
         src={content.images.hero}
         overlayClassName="bg-gradient-to-b from-emerald-950/85 via-emerald-950/80 to-emerald-950"
+        priority
       />
       <div
         className="pattern-girih-lines pointer-events-none absolute inset-0 -z-10 text-emerald-300/[0.06]"

@@ -6,7 +6,7 @@ export default function LoginPage() {
       <div className="w-full max-w-sm">
         <div className="mb-8 text-center">
           <h1 className="font-display text-2xl font-semibold text-white">AmanahHaji</h1>
-          <p className="mt-1 text-sm text-slate-400">Log masuk ke panel pentadbir</p>
+          <p className="mt-1 text-sm text-slate-400">Sign in to the admin panel</p>
         </div>
         <LoginForm />
       </div>
