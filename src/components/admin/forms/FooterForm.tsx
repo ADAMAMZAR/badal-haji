@@ -1,5 +1,5 @@
 import type { SiteContent } from "@/types/content";
-import { Textarea } from "../FormControls";
+import { Input, Textarea } from "../FormControls";
 
 type Props = {
   value: SiteContent["footer"];
@@ -7,13 +7,29 @@ type Props = {
 };
 
 export function FooterForm({ value, onChange }: Props) {
+  const set = (key: keyof typeof value) => (val: string) =>
+    onChange({ ...value, [key]: val });
+
   return (
     <div className="space-y-5">
+      <Input label="Legal Entity Name" value={value.legalName} onChange={set("legalName")} />
       <Textarea
         label="Footer Description"
         value={value.description}
-        onChange={(v) => onChange({ ...value, description: v })}
+        onChange={set("description")}
         rows={3}
+      />
+      <Input
+        label="Contact Email"
+        hint="Leave blank to hide the email link in the footer"
+        value={value.email}
+        onChange={set("email")}
+      />
+      <Input
+        label="Address"
+        hint="Leave blank to hide the address in the footer"
+        value={value.address}
+        onChange={set("address")}
       />
     </div>
   );

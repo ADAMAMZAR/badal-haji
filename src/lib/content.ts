@@ -16,32 +16,57 @@ export const DEFAULT_CONTENT: SiteContent = {
       "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?q=80&w=1800&auto=format&fit=crop",
   },
   hero: {
-    eyebrow: "Perkhidmatan Badal Haji",
-    titleLine1: "Pelaksanaan",
-    titleLine2: "Badal Haji",
+    eyebrow: "Khidmat Badal Haji Bertauliah",
+    titleLine1: "Menyempurnakan rukun haji,",
+    titleLine2: "bagi pihak insan tersayang.",
     tagline: "Telus & Bertauliah",
     description:
-      "Kami melaksanakan ibadah haji bagi pihak ahli keluarga yang telah kembali ke rahmatullah atau tidak berdaya secara fizikal — dilaksanakan mengikut rukun yang sah, direkodkan sepenuhnya, dan disertakan sijil pengesahan rasmi untuk ketenangan hati anda.",
-    primaryCtaText: "Hubungi Kami di WhatsApp",
-    secondaryCtaText: "Lihat Pakej & Harga",
+      "Untuk arwah yang telah pergi, atau mereka yang uzur dan tidak berdaya menunaikannya sendiri — kami laksanakan setiap rukun dengan niat khusus, penuh amanah dan ketelusan.",
+    primaryCtaText: "Lihat Pakej & Harga",
+    secondaryCtaText: "Hubungi Kami",
+    stats: [
+      { id: "stat-1", value: "Sah", label: "Mengikut syarak" },
+      { id: "stat-2", value: "Telus", label: "Video & sijil rasmi" },
+      { id: "stat-3", value: "Taiping", label: "Perak, Malaysia" },
+    ],
   },
   about: {
     eyebrow: "Tentang Kami",
-    title: "Tentang AmanahHaji",
+    title: "Amanah Haji Sdn Bhd — amanah yang dijaga rapi.",
     description:
-      "AmanahHaji ditubuhkan untuk membantu keluarga melaksanakan tanggungjawab Badal Haji bagi ahli keluarga yang telah kembali ke rahmatullah atau tidak berdaya secara fizikal untuk menyempurnakan ibadah haji sendiri. Setiap pelaksanaan diuruskan dengan penuh amanah, direkodkan, dan disahkan melalui sijil rasmi.",
-    checklist: [
-      "Wakil Berpengalaman",
-      "Proses Mengikut Syarak",
-      "Rakaman & Sijil Rasmi",
-      "Harga Tetap, Tiada Tambahan",
-      "Komunikasi Sepanjang Proses",
-      "Susulan Selepas Selesai",
+      "Berpangkalan di Taiping, Perak, Amanah Haji Sdn Bhd menyediakan khidmat Badal Haji yang sah mengikut syarak. Setiap ibadah dilaksanakan oleh wakil berpengalaman yang telah menunaikan haji untuk diri sendiri terlebih dahulu — syarat penting bagi seorang yang melakukan badal. Kami memahami betapa berharganya niat keluarga untuk menyempurnakan rukun Islam kelima bagi insan tersayang. Justeru, setiap proses kami iringi dengan bukti, ketelusan dan doa.",
+    badgeValue: "100%",
+    badgeLabel: "Amanah & Telus",
+    values: [
+      {
+        id: "value-1",
+        icon: "CircleCheck",
+        title: "Wakil Berpengalaman",
+        desc: "Telah menunaikan haji untuk diri sendiri.",
+      },
+      {
+        id: "value-2",
+        icon: "CircleCheck",
+        title: "Sijil Rasmi",
+        desc: "Bukti pelaksanaan yang sah.",
+      },
+      {
+        id: "value-3",
+        icon: "CircleCheck",
+        title: "Rakaman Video",
+        desc: "Saksikan setiap rukun dilaksanakan.",
+      },
+      {
+        id: "value-4",
+        icon: "CircleCheck",
+        title: "Air Zam-zam",
+        desc: "Dihantar terus kepada keluarga.",
+      },
     ],
   },
   process: {
-    eyebrow: "Proses Pelaksanaan",
-    title: "Bagaimana Kami Melaksanakan Amanah Anda",
+    eyebrow: "Cara Kerja",
+    title: "Tiga langkah mudah, sepenuhnya telus.",
     steps: [
       {
         id: "step-1",
@@ -65,61 +90,41 @@ export const DEFAULT_CONTENT: SiteContent = {
   },
   pricing: {
     eyebrow: "Pakej & Harga",
-    title: "Pakej Kami",
+    title: "Pilih pakej yang sesuai",
     description:
-      "Harga yang ditetapkan sudah merangkumi keseluruhan perkhidmatan dari permulaan niat sehingga sijil pelaksanaan dihantar kepada keluarga.",
+      "Harga termasuk pelaksanaan rukun, sijil rasmi, rakaman video & air Zam-zam.",
     packages: [
       {
         id: "pkg-1",
-        name: "Pakej Lengkap",
+        name: "Standard",
         price: 2500,
         priceSuffix: "/ orang",
+        tagline: "Pelaksanaan Badal Haji yang lengkap & sah.",
         items: [
-          "Sijil Perlaksanaan",
-          "Sejadah",
-          "Minyak Wangi / Attar",
-          "Air Zam Zam",
-          "Kurma",
+          "Pelaksanaan semua rukun haji",
+          "Niat khusus atas nama penerima",
+          "Sijil pelaksanaan rasmi",
+          "Air Zam-zam (1 botol)",
+          "Laporan ringkas selepas selesai",
         ],
-        ctaText: "Tempah Pakej Ini di WhatsApp",
-        highlight: true,
-      },
-    ],
-  },
-  trust: {
-    eyebrow: "Ketelusan Adalah Asas",
-    title: "Kenapa Keluarga Mempercayakan Amanah Ini Kepada Kami",
-    indicators: [
-      {
-        id: "trust-1",
-        iconName: "ShieldCheck",
-        title: "Pelaksana Bertauliah",
-        description:
-          "Setiap pelaksanaan Badal Haji dijalankan oleh wakil yang sah dan berpengalaman, mengikut syarat dan rukun yang ditetapkan oleh syarak.",
+        ctaText: "Tempah Pakej Ini",
         highlight: false,
       },
       {
-        id: "trust-2",
-        iconName: "Video",
-        title: "Bukti Rakaman Penuh",
-        description:
-          "Setiap rukun — daripada niat sehingga tahallul — dirakam secara video dan dihantar terus kepada keluarga sebagai bukti pelaksanaan.",
-        highlight: false,
-      },
-      {
-        id: "trust-3",
-        iconName: "Wallet",
-        title: "Harga Tetap & Telus",
-        description:
-          "Yuran ditetapkan sejak awal dan bersifat muktamad — tanpa caj tambahan atau kos tersembunyi sepanjang proses pelaksanaan.",
-        highlight: false,
-      },
-      {
-        id: "trust-4",
-        iconName: "CheckCircle",
-        title: "Sijil Pelaksanaan",
-        description:
-          "Selepas selesai, satu sijil rasmi pelaksanaan Badal Haji dikeluarkan atas nama si penerima sebagai rekod dan ketenangan hati keluarga.",
+        id: "pkg-2",
+        name: "Premium",
+        price: 3000,
+        priceSuffix: "/ orang",
+        tagline: "Pengalaman penuh dengan bukti terperinci.",
+        items: [
+          "Semua yang ada dalam Standard",
+          "Rakaman video penuh setiap rukun",
+          "Sijil rasmi berbingkai",
+          "Air Zam-zam (set istimewa)",
+          "Doa khusus & laporan terperinci",
+          "Keutamaan jadual pelaksanaan",
+        ],
+        ctaText: "Tempah Pakej Ini",
         highlight: true,
       },
     ],
@@ -153,16 +158,12 @@ export const DEFAULT_CONTENT: SiteContent = {
     disclaimer:
       "* Testimoni di atas adalah contoh paparan. Akan dikemas kini dengan testimoni sebenar daripada keluarga yang telah menerima perkhidmatan.",
   },
-  cta: {
-    title: "Bersedia Melaksanakan Amanah Ini?",
-    description:
-      "Hubungi kami untuk mendapatkan penjelasan lanjut mengenai proses, harga dan tempahan Badal Haji bagi pihak ahli keluarga anda.",
-    primaryText: "Hubungi Kami di WhatsApp",
-    secondaryText: "Tempah Pakej Sekarang",
-  },
   footer: {
+    legalName: "Amanah Haji Sdn Bhd",
     description:
-      "Beroperasi dengan penuh ketelusan dan tanggungjawab dalam melaksanakan amanah ibadah keluarga anda.",
+      "Khidmat Badal Haji yang sah dan amanah, dilaksanakan dengan niat khusus bagi pihak insan tersayang. Berpangkalan di Taiping, Perak.",
+    email: "salam@amanahhaji.my",
+    address: "Taiping, Perak, Darul Ridzuan, Malaysia",
   },
 };
 
@@ -173,6 +174,64 @@ const KV_TIMEOUT_MS = 2000;
 export type ContentResult =
   | { ok: true; content: SiteContent }
   | { ok: false; content: SiteContent; error: string };
+
+/**
+ * Backfills content saved under an older schema (e.g. missing hero.stats,
+ * about.values, footer.legalName, or the now-removed trust/cta sections)
+ * so previously stored KV data doesn't crash the new design.
+ */
+function normalizeContent(raw: unknown): SiteContent {
+  const r = (raw ?? {}) as Partial<Record<keyof SiteContent, Record<string, unknown>>>;
+  const rHero = r.hero ?? {};
+  const rAbout = r.about ?? {};
+  const rProcess = r.process ?? {};
+  const rPricing = r.pricing ?? {};
+  const rTestimonials = r.testimonials ?? {};
+
+  return {
+    contact: { ...DEFAULT_CONTENT.contact, ...r.contact },
+    images: { ...DEFAULT_CONTENT.images, ...r.images },
+    hero: {
+      ...DEFAULT_CONTENT.hero,
+      ...rHero,
+      stats: Array.isArray(rHero.stats) && rHero.stats.length
+        ? (rHero.stats as SiteContent["hero"]["stats"])
+        : DEFAULT_CONTENT.hero.stats,
+    },
+    about: {
+      ...DEFAULT_CONTENT.about,
+      ...rAbout,
+      values: Array.isArray(rAbout.values) && rAbout.values.length
+        ? (rAbout.values as SiteContent["about"]["values"])
+        : DEFAULT_CONTENT.about.values,
+    },
+    process: {
+      ...DEFAULT_CONTENT.process,
+      ...rProcess,
+      steps: Array.isArray(rProcess.steps) && rProcess.steps.length
+        ? (rProcess.steps as SiteContent["process"]["steps"])
+        : DEFAULT_CONTENT.process.steps,
+    },
+    pricing: {
+      ...DEFAULT_CONTENT.pricing,
+      ...rPricing,
+      packages: Array.isArray(rPricing.packages) && rPricing.packages.length
+        ? (rPricing.packages as Array<Record<string, unknown>>).map((p) => ({
+            tagline: "",
+            ...p,
+          })) as SiteContent["pricing"]["packages"]
+        : DEFAULT_CONTENT.pricing.packages,
+    },
+    testimonials: {
+      ...DEFAULT_CONTENT.testimonials,
+      ...rTestimonials,
+      items: Array.isArray(rTestimonials.items) && rTestimonials.items.length
+        ? (rTestimonials.items as SiteContent["testimonials"]["items"])
+        : DEFAULT_CONTENT.testimonials.items,
+    },
+    footer: { ...DEFAULT_CONTENT.footer, ...r.footer },
+  };
+}
 
 async function kvWithTimeout<T>(promise: Promise<T>): Promise<T> {
   return Promise.race([
@@ -190,7 +249,7 @@ export async function getContent(): Promise<ContentResult> {
   try {
     const { kv } = await import("@vercel/kv");
     const content = await kvWithTimeout(kv.get<SiteContent>(KV_KEY));
-    return { ok: true, content: content ?? DEFAULT_CONTENT };
+    return { ok: true, content: content ? normalizeContent(content) : DEFAULT_CONTENT };
   } catch (e) {
     return {
       ok: false,
@@ -204,7 +263,8 @@ export async function getPrevContent(): Promise<SiteContent | null> {
   if (!process.env.KV_REST_API_URL || !process.env.KV_REST_API_TOKEN) return null;
   try {
     const { kv } = await import("@vercel/kv");
-    return await kvWithTimeout(kv.get<SiteContent>(KV_PREV_KEY));
+    const prev = await kvWithTimeout(kv.get<SiteContent>(KV_PREV_KEY));
+    return prev ? normalizeContent(prev) : null;
   } catch {
     return null;
   }

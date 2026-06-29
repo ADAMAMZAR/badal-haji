@@ -7,9 +7,7 @@ import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Process } from "@/components/sections/Process";
 import { Pricing } from "@/components/sections/Pricing";
-import { TrustSection } from "@/components/sections/TrustSection";
 import { TestimonialSection } from "@/components/sections/TestimonialSection";
-import { CtaSection } from "@/components/sections/CtaSection";
 import { Footer } from "@/components/sections/Footer";
 
 const TAB_TO_SECTION: Record<string, string> = {
@@ -18,9 +16,7 @@ const TAB_TO_SECTION: Record<string, string> = {
   about: "about",
   process: "process",
   pricing: "pricing",
-  trust: "trust",
   testimonials: "testimonials",
-  cta: "cta",
   contact: "footer",
   footer: "footer",
 };
@@ -112,14 +108,8 @@ export function LivePreview({ content, activeTab, previewMode, onPreviewModeChan
           <div ref={refSetters.current["pricing"]}>
             <Pricing content={content} />
           </div>
-          <div ref={refSetters.current["trust"]}>
-            <TrustSection content={content} />
-          </div>
           <div ref={refSetters.current["testimonials"]}>
             <TestimonialSection content={content} />
-          </div>
-          <div ref={refSetters.current["cta"]}>
-            <CtaSection content={content} />
           </div>
           <div ref={refSetters.current["footer"]}>
             <Footer content={content} />

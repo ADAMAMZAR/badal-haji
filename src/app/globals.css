@@ -1,8 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Fraunces", "Georgia", serif;
+  --font-display: "Cormorant Garamond", "Georgia", serif;
   --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-arabic: "Amiri", serif;
+
+  --color-ink: #123d2a;
+  --color-ink-dark: #0e3324;
+  --color-ink-darker: #0a2519;
+  --color-gold: #c49a4a;
+  --color-cream: #f4eee1;
+  --color-cream-soft: #ede4d1;
+  --color-cream-card: #fbf7ee;
 }
 
 @layer base {
@@ -12,6 +21,8 @@
 
   body {
     font-family: var(--font-sans);
+    background-color: var(--color-cream);
+    color: #23362b;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -37,7 +48,7 @@
 
 @layer base {
   ::selection {
-    background-color: var(--color-emerald-200);
-    color: var(--color-emerald-950);
+    background-color: var(--color-ink);
+    color: var(--color-cream);
   }
 }

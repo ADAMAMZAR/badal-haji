@@ -1,4 +1,4 @@
-import { CheckCircle, MessageCircle } from "lucide-react";
+import { CheckCircle, MessageCircleQuestionMark } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import type { SiteContent } from "@/types/content";
@@ -12,87 +12,84 @@ export function Pricing({ content }: { content: SiteContent }) {
     pricing.packages.length === 1
       ? "max-w-md mx-auto"
       : pricing.packages.length === 2
-        ? "grid sm:grid-cols-2 gap-6"
-        : "grid sm:grid-cols-2 lg:grid-cols-3 gap-6";
+        ? "grid sm:grid-cols-2 gap-7"
+        : "grid sm:grid-cols-2 lg:grid-cols-3 gap-7";
 
   return (
-    <section id="pakej" className="bg-slate-50 py-20 sm:py-28">
-      <div className="mx-auto max-w-7xl px-6">
-        <Reveal className="mx-auto max-w-2xl text-center">
+    <section id="pakej" className="bg-cream py-20 sm:py-28">
+      <div className="mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 xl:px-20">
+        <Reveal className="mx-auto max-w-xl text-center">
           <SectionHeading eyebrow={pricing.eyebrow} title={pricing.title} />
-          <p className="mt-4 text-balance leading-relaxed text-slate-600">
+          <p className="mt-3.5 text-balance leading-relaxed text-[#6b7a6d]">
             {pricing.description}
           </p>
         </Reveal>
 
-        <div className={`mt-12 ${colClass}`}>
+        <div className={`mx-auto mt-12 max-w-5xl items-stretch ${colClass}`}>
           {pricing.packages.map((pkg, index) => (
             <Reveal key={pkg.id} delay={index * 100}>
               {pkg.highlight ? (
-                <div className="relative overflow-hidden rounded-3xl bg-emerald-950 p-8 text-emerald-50 shadow-2xl shadow-emerald-950/30 sm:p-10">
-                  <div
-                    className="pattern-girih-lines pointer-events-none absolute inset-0 text-emerald-300/[0.05]"
-                    aria-hidden="true"
-                  />
-                  <div className="relative flex flex-wrap items-baseline justify-between gap-4 border-b border-white/10 pb-6">
-                    <h3 className="font-display text-2xl font-medium">{pkg.name}</h3>
-                    <p className="text-right">
-                      <span className="font-display text-4xl font-semibold text-emerald-400">
-                        RM {pkg.price.toLocaleString()}
-                      </span>
-                      <span className="ml-1 text-sm text-emerald-100/60">{pkg.priceSuffix}</span>
-                    </p>
+                <div className="relative flex h-full flex-col overflow-hidden rounded-xl border border-gold bg-ink-dark p-9 text-cream shadow-2xl shadow-ink-dark/25 sm:p-10">
+                  <span className="absolute right-5 top-5 rounded-full bg-gold px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wide text-ink-dark">
+                    Pilihan Terbaik
+                  </span>
+                  <div className="text-[13px] uppercase tracking-[0.15em] text-gold">
+                    {pkg.name}
                   </div>
-                  <ul className="relative mt-6 space-y-3.5">
+                  <div className="mt-3.5 flex items-baseline gap-1.5">
+                    <span className="text-lg font-semibold text-cream">RM</span>
+                    <span className="font-display text-[54px] font-bold leading-none text-cream">
+                      {pkg.price.toLocaleString()}
+                    </span>
+                  </div>
+                  <div className="mb-6 mt-1 text-sm text-cream/65">{pkg.tagline}</div>
+                  <div className="mb-6 h-px bg-gold/30" />
+                  <div className="mb-8 flex flex-col gap-3.5">
                     {pkg.items.map((item) => (
-                      <li key={item} className="flex items-start gap-3">
-                        <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" />
-                        <span className="text-sm leading-relaxed text-emerald-50/90 sm:text-base">
-                          {item}
-                        </span>
-                      </li>
+                      <div key={item} className="flex items-start gap-2.5 text-sm">
+                        <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                        <span className="text-cream/85">{item}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                   <a
                     href={waLink(contact.packageMessage)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-500 px-6 py-4 text-base font-semibold text-emerald-950 transition-colors hover:bg-emerald-400"
+                    className="mt-auto flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3.5 text-[15px] font-bold text-ink-dark transition-transform hover:-translate-y-0.5"
                   >
-                    <MessageCircle className="h-5 w-5" />
+                    <MessageCircleQuestionMark className="h-5 w-5" />
                     {pkg.ctaText}
                   </a>
                 </div>
               ) : (
-                <div className="h-full rounded-2xl border border-emerald-900/10 bg-white p-8">
-                  <div className="flex flex-wrap items-baseline justify-between gap-4 border-b border-emerald-900/10 pb-6">
-                    <h3 className="font-display text-2xl font-medium text-emerald-950">
-                      {pkg.name}
-                    </h3>
-                    <p>
-                      <span className="font-display text-4xl font-semibold text-emerald-700">
-                        RM {pkg.price.toLocaleString()}
-                      </span>
-                      <span className="ml-1 text-sm text-slate-500">{pkg.priceSuffix}</span>
-                    </p>
+                <div className="flex h-full flex-col rounded-xl border border-ink/10 bg-cream-card p-9 sm:p-10">
+                  <div className="text-[13px] uppercase tracking-[0.15em] text-[#9a7d3f]">
+                    {pkg.name}
                   </div>
-                  <ul className="mt-6 space-y-3.5">
+                  <div className="mt-3.5 flex items-baseline gap-1.5">
+                    <span className="text-lg font-semibold text-ink">RM</span>
+                    <span className="font-display text-[54px] font-bold leading-none text-ink">
+                      {pkg.price.toLocaleString()}
+                    </span>
+                  </div>
+                  <div className="mb-6 mt-1 text-sm text-[#6b7a6d]">{pkg.tagline}</div>
+                  <div className="mb-6 h-px bg-ink/10" />
+                  <div className="mb-8 flex flex-col gap-3.5">
                     {pkg.items.map((item) => (
-                      <li key={item} className="flex items-start gap-3">
-                        <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
-                        <span className="text-sm leading-relaxed text-slate-600 sm:text-base">
-                          {item}
-                        </span>
-                      </li>
+                      <div key={item} className="flex items-start gap-2.5 text-sm">
+                        <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-[#1f8a5b]" />
+                        <span className="text-[#3c4d40]">{item}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                   <a
                     href={waLink(contact.packageMessage)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-emerald-700/30 bg-emerald-50 px-6 py-4 text-base font-semibold text-emerald-800 transition-colors hover:bg-emerald-100"
+                    className="mt-auto flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3.5 text-[15px] font-semibold text-cream transition-transform hover:-translate-y-0.5"
                   >
-                    <MessageCircle className="h-5 w-5" />
+                    <MessageCircleQuestionMark className="h-5 w-5" />
                     {pkg.ctaText}
                   </a>
                 </div>
@@ -100,6 +97,19 @@ export function Pricing({ content }: { content: SiteContent }) {
             </Reveal>
           ))}
         </div>
+
+        <p className="mt-8 text-center text-[13px] italic text-[#9b8a68]">
+          Ingin berbincang dahulu?{" "}
+          <a
+            href={waLink(contact.generalMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-[#9a7d3f] underline"
+          >
+            WhatsApp kami
+          </a>{" "}
+          untuk pertanyaan lanjut.
+        </p>
       </div>
     </section>
   );

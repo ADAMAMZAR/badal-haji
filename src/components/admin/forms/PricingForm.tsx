@@ -27,6 +27,7 @@ function newPackage(): Package {
     name: "",
     price: 0,
     priceSuffix: "/ orang",
+    tagline: "",
     items: [],
     ctaText: "Book This Package via WhatsApp",
     highlight: false,
@@ -111,6 +112,11 @@ function SortablePackage({
               onChange={(v) => onUpdate({ priceSuffix: v })}
             />
           </div>
+          <Input
+            label="Tagline"
+            value={pkg.tagline}
+            onChange={(v) => onUpdate({ tagline: v })}
+          />
           <Input
             label="CTA Button Text"
             value={pkg.ctaText}

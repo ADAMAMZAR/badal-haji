@@ -3,6 +3,7 @@ export type Package = {
   name: string;
   price: number;
   priceSuffix: string;
+  tagline: string;
   items: string[];
   ctaText: string;
   highlight: boolean;
@@ -14,12 +15,17 @@ export type ProcessStep = {
   description: string;
 };
 
-export type TrustIndicator = {
+export type AboutValue = {
   id: string;
-  iconName: "ShieldCheck" | "Video" | "CheckCircle" | "Wallet" | "Star" | "Heart";
+  icon: string;
   title: string;
-  description: string;
-  highlight: boolean;
+  desc: string;
+};
+
+export type HeroStat = {
+  id: string;
+  value: string;
+  label: string;
 };
 
 export type Testimonial = {
@@ -48,12 +54,15 @@ export type SiteContent = {
     description: string;
     primaryCtaText: string;
     secondaryCtaText: string;
+    stats: HeroStat[];
   };
   about: {
     eyebrow: string;
     title: string;
     description: string;
-    checklist: string[];
+    badgeValue: string;
+    badgeLabel: string;
+    values: AboutValue[];
   };
   process: {
     eyebrow: string;
@@ -66,24 +75,16 @@ export type SiteContent = {
     description: string;
     packages: Package[];
   };
-  trust: {
-    eyebrow: string;
-    title: string;
-    indicators: TrustIndicator[];
-  };
   testimonials: {
     eyebrow: string;
     title: string;
     items: Testimonial[];
     disclaimer: string;
   };
-  cta: {
-    title: string;
-    description: string;
-    primaryText: string;
-    secondaryText: string;
-  };
   footer: {
+    legalName: string;
     description: string;
+    email: string;
+    address: string;
   };
 };

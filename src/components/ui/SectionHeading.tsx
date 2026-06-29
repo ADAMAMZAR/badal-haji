@@ -3,8 +3,8 @@ import type { ReactNode } from "react";
 export function SectionHeading({
   eyebrow,
   title,
-  eyebrowClassName = "text-emerald-700",
-  titleClassName = "text-emerald-950",
+  eyebrowClassName = "text-[#9a7d3f]",
+  titleClassName = "text-ink",
 }: {
   eyebrow: ReactNode;
   title: ReactNode;

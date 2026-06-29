@@ -20,9 +20,7 @@ function isValidContent(body: unknown): body is SiteContent {
     typeof b.about === "object" && b.about !== null &&
     typeof b.process === "object" && b.process !== null &&
     typeof b.pricing === "object" && b.pricing !== null &&
-    typeof b.trust === "object" && b.trust !== null &&
     typeof b.testimonials === "object" && b.testimonials !== null &&
-    typeof b.cta === "object" && b.cta !== null &&
     typeof b.footer === "object" && b.footer !== null
   );
 }

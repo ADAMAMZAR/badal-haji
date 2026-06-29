@@ -6,25 +6,32 @@ export function Process({ content }: { content: SiteContent }) {
   const { process } = content;
 
   return (
-    <section id="proses" className="bg-white py-20 sm:py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <SectionHeading eyebrow={process.eyebrow} title={process.title} />
+    <section id="proses" className="relative overflow-hidden bg-ink-dark py-20 sm:py-28">
+      <div
+        className="pattern-girih-lines pointer-events-none absolute inset-0 text-gold/5"
+        aria-hidden="true"
+      />
+      <div className="relative mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 xl:px-20">
+        <Reveal className="mx-auto max-w-xl text-center">
+          <SectionHeading
+            eyebrow={process.eyebrow}
+            title={process.title}
+            eyebrowClassName="text-[#d9c79e]"
+            titleClassName="text-cream"
+          />
         </Reveal>
 
-        <div className="mt-14 grid gap-8 sm:grid-cols-3">
+        <div className="mt-14 grid gap-7 sm:grid-cols-3">
           {process.steps.map((step, index) => (
             <Reveal key={step.id} delay={index * 120}>
-              <div className="h-full rounded-2xl border border-emerald-900/10 bg-slate-50 p-7">
-                <span className="font-display text-4xl font-medium text-emerald-200">
+              <div className="h-full rounded-[10px] border border-gold/20 bg-cream/[0.04] p-9 transition-colors hover:border-gold/50">
+                <div className="font-display text-[54px] font-bold leading-none text-gold/35">
                   {String(index + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-4 font-display text-xl font-medium text-emerald-950">
+                </div>
+                <h3 className="mt-4 font-display text-[25px] font-semibold text-cream">
                   {step.title}
                 </h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-slate-600">
-                  {step.description}
-                </p>
+                <p className="mt-3 text-sm leading-relaxed text-cream/70">{step.description}</p>
               </div>
             </Reveal>
           ))}

@@ -1,61 +1,46 @@
-import { CheckCircle } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
+import { DynamicIcon } from "@/components/ui/DynamicIcon";
 import type { SiteContent } from "@/types/content";
 
 export function About({ content }: { content: SiteContent }) {
   const { about, images } = content;
 
   return (
-    <section className="bg-slate-50 py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:items-center lg:gap-16">
-        {/* Mobile: single image */}
-        <Reveal className="lg:hidden">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={images.hero}
-            alt=""
-            aria-hidden="true"
-            className="h-56 w-full rounded-2xl object-cover sm:h-72"
-          />
-        </Reveal>
-
-        {/* Desktop: 2×2 image grid */}
-        <Reveal className="hidden h-[420px] grid-cols-2 grid-rows-2 gap-4 lg:grid">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={images.hero}
-            alt=""
-            aria-hidden="true"
-            className="row-span-2 h-full w-full rounded-2xl object-cover"
-          />
+    <section id="tentang" className="bg-cream py-20 sm:py-28">
+      <div className="mx-auto grid max-w-[1800px] gap-14 px-6 sm:px-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16 lg:px-16 xl:px-20">
+        <Reveal className="relative">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={images.madinah}
             alt=""
             aria-hidden="true"
-            className="h-full w-full rounded-2xl object-cover"
+            className="aspect-[4/5] w-full rounded-lg border border-ink/10 object-cover"
           />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={images.quran}
-            alt=""
-            aria-hidden="true"
-            className="h-full w-full rounded-2xl object-cover"
-          />
+          <div className="absolute -bottom-6 -right-6 rounded-md bg-ink px-6 py-5 text-cream shadow-xl shadow-ink/25">
+            <div className="font-display text-3xl font-bold leading-none text-gold">
+              {about.badgeValue}
+            </div>
+            <div className="mt-1 text-xs text-cream/80">{about.badgeLabel}</div>
+          </div>
         </Reveal>
 
         <Reveal delay={150}>
           <SectionHeading eyebrow={about.eyebrow} title={about.title} />
-          <p className="mt-4 leading-relaxed text-slate-600">{about.description}</p>
-          <ul className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {about.checklist.map((item) => (
-              <li key={item} className="flex items-center gap-2.5">
-                <CheckCircle className="h-5 w-5 shrink-0 text-emerald-600" />
-                <span className="text-sm font-medium text-slate-700">{item}</span>
-              </li>
+          <p className="mt-5 leading-relaxed text-[#4a5a4d]">{about.description}</p>
+          <div className="mt-9 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {about.values.map((v) => (
+              <div key={v.id} className="flex gap-3">
+                <div className="flex h-[34px] w-[34px] shrink-0 items-center justify-center rounded-lg bg-[#eadfc6] text-[#9a7d3f]">
+                  <DynamicIcon name={v.icon} className="h-[18px] w-[18px]" strokeWidth={1.75} />
+                </div>
+                <div>
+                  <div className="text-[14.5px] font-semibold text-ink">{v.title}</div>
+                  <div className="mt-0.5 text-[12.5px] leading-snug text-[#6b7a6d]">{v.desc}</div>
+                </div>
+              </div>
             ))}
-          </ul>
+          </div>
         </Reveal>
       </div>
     </section>

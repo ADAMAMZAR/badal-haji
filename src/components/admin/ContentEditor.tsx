@@ -10,9 +10,7 @@ import { HeroForm } from "./forms/HeroForm";
 import { AboutForm } from "./forms/AboutForm";
 import { ProcessForm } from "./forms/ProcessForm";
 import { PricingForm } from "./forms/PricingForm";
-import { TrustForm } from "./forms/TrustForm";
 import { TestimonialsForm } from "./forms/TestimonialsForm";
-import { CtaForm } from "./forms/CtaForm";
 import { FooterForm } from "./forms/FooterForm";
 import { LivePreview } from "./LivePreview";
 
@@ -23,9 +21,7 @@ const tabs = [
   { id: "about", label: "About" },
   { id: "process", label: "Process" },
   { id: "pricing", label: "Packages" },
-  { id: "trust", label: "Trust" },
   { id: "testimonials", label: "Testimonials" },
-  { id: "cta", label: "CTA" },
   { id: "footer", label: "Footer" },
 ] as const;
 
@@ -130,7 +126,7 @@ export function ContentEditor({
       {/* Sidebar */}
       <aside className="hidden w-56 shrink-0 flex-col border-r border-slate-200 bg-white md:flex">
         <div className="border-b border-slate-200 px-5 py-4">
-          <p className="font-display text-base font-semibold text-emerald-900">AmanahHaji</p>
+          <p className="font-display text-base font-semibold text-emerald-900">Amanah Haji</p>
           <p className="text-xs text-slate-500">Admin Panel</p>
         </div>
         <nav className="flex-1 overflow-y-auto py-3">
@@ -317,17 +313,11 @@ export function ContentEditor({
               {activeTab === "pricing" && (
                 <PricingForm value={content.pricing} onChange={(v) => update("pricing", v)} />
               )}
-              {activeTab === "trust" && (
-                <TrustForm value={content.trust} onChange={(v) => update("trust", v)} />
-              )}
               {activeTab === "testimonials" && (
                 <TestimonialsForm
                   value={content.testimonials}
                   onChange={(v) => update("testimonials", v)}
                 />
-              )}
-              {activeTab === "cta" && (
-                <CtaForm value={content.cta} onChange={(v) => update("cta", v)} />
               )}
               {activeTab === "footer" && (
                 <FooterForm value={content.footer} onChange={(v) => update("footer", v)} />
